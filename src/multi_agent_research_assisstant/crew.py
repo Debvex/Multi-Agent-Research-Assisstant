@@ -22,14 +22,16 @@ class MultiAgentResearchAssisstant():
     def researcher(self) -> Agent:
         return Agent(
             config=self.agents_config['researcher'], # type: ignore[index]
-            verbose=True
+            verbose=True,
+            multimodal = True,
         )
 
     @agent
     def reporting_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['reporting_analyst'], # type: ignore[index]
-            verbose=True
+            verbose=True,
+            multimodal=True,
         )
 
     # To learn more about structured task outputs,
@@ -48,16 +50,27 @@ class MultiAgentResearchAssisstant():
             output_file='report.md'
         )
 
+    
+
     @crew
     def crew(self) -> Crew:
         """Creates the MultiAgentResearchAssisstant crew"""
         # To learn how to add knowledge sources to your crew, check out the documentation:
         # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
 
+        manager = Agent(
+            role="Project Manager",
+            goal="Efficiently manage the crew and ensure high-quality task completion",
+            backstory="You're an experienced project manager, skilled in overseeing complex projects and guiding teams to success.",
+            allow_delegation=True,
+        )
+
         return Crew(
             agents=self.agents, # Automatically created by the @agent decorator
             tasks=self.tasks, # Automatically created by the @task decorator
-            process=Process.sequential,
+            process=Process.heirarchical,
             verbose=True,
+            manager_agent=manager,
+            manager_llm="gpt-5.5"
             # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
         )
