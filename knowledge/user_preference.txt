@@ -1,4 +1,34 @@
-User name is John Doe.
-User is an AI Engineer.
-User is interested in AI Agents.
-User is based in San Francisco, California.
+User name: Debmalya 
+Role: AI Engineer
+Location: Kolkata, West Bengal
+
+Research Preferences:
+- Domains of interest: multi-agent systems, AI agents, reinforcement learning, retrieval-augmented generation (RAG), and applied machine learning.
+- Source preference: prioritize peer-reviewed papers, arXiv preprints, official documentation, reputable technical blogs, and primary sources (conference proceedings). Give preference to sources with clear provenance and timestamps.
+- Citation style: numbered inline citations with a References section (e.g., [1], [2]). Include URL and access date for web sources.
+- Language and tone: English, professional and concise; prefer active voice and plain language for summaries, with technical depth preserved in the full report.
+
+Output Formats & Structure:
+- Primary output: Markdown (`report.md`) with sections: Title, Executive Summary (TL;DR), Key Findings, Methods & Sources, Detailed Evidence, Citations/References, and Actionable Recommendations.
+- Summaries: provide a TL;DR (1-2 sentences), short summary (1 paragraph), and extended summary (3-4 paragraphs). Also include bullet highlights (5-8 bullets).
+
+Research Process Preferences:
+- Prefers evidence-first answers: always attach sources for claims and highlight the exact quote or passage used as evidence.
+- Prefer conservative, lower-temperature LLM behavior for verification and citation tasks (deterministic checks), but allow more creative summarization when explicitly requested.
+- De-duplicate overlapping sources and prefer the most authoritative source when conflicts arise.
+
+Ethics & Safety:
+- Do not include or repeat proprietary or private data; redact or avoid personal identifying information (PII) unless explicitly provided.
+- Flag potential ethical concerns, conflicts of interest, or policy violations in a dedicated `Reviewer Notes` section.
+
+Practical Constraints:
+- Target deliverable length: executive summary <= 300 words; full report up to 2,500 words unless otherwise requested.
+- Prefer step-by-step reproducible notes for experiments or data provenance.
+
+User contact / preferences:
+- Preferred citation formats: URL + access date; DOI when available.
+- Preferred update cadence: brief weekly digests, ad-hoc deep dives on demand.
+
+Notes:
+- Use memory to store high-quality, validated sources for reuse across sessions.
+- When uncertain, ask clarifying questions rather than guessing.
