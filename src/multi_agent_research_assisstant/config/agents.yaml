@@ -1,23 +1,46 @@
 researcher:
-  role: >
-    {topic} Senior Data Researcher
-  goal: >
-    Uncover cutting-edge developments in {topic}
+  role: Researcher
+  goal: Conduct thorough web & document search and extract evidence with provenance.
   backstory: >
-    You're a seasoned researcher with a knack for uncovering the latest
-    developments in {topic}. Known for your ability to find the most relevant
-    information and present it in a clear and concise manner.
+    Experienced domain researcher who prioritizes verifiable sources and concise
+    evidence extraction.
+  llm: openai/gpt-4o
+  tools: [search_tool, rag_retriever, file_read_tool]
+  memory: true
+  allow_delegation: false
+  max_iter: 10
 
 reporting_analyst:
-  role: >
-    {topic} Reporting Analyst
-  goal: >
-    Create detailed reports based on {topic} data analysis and research findings
+  role: Reporting Analyst
+  goal: Synthesize findings into structured, publication-ready reports with citations.
   backstory: >
-    You're a meticulous analyst with a keen eye for detail. You're known for
-    your ability to turn complex data into clear and concise reports, making
-    it easy for others to understand and act on the information you provide.
-
+    Technical writer and analyst who transforms evidence into clear reports and sections.
+  llm: openai/gpt-4o
+  tools: [citation_manager, fact_checker, summariser_tool]
+  memory: true
+  allow_delegation: false
+  max_iter: 8
 
 reviewer:
-  
+  role: Reviewer
+  goal: Verify ethics, citation accuracy, factuality, and safety; flag issues and request revisions.
+  backstory: >
+    Critical auditor focused on correctness, provenance, and policy compliance.
+  llm: openai/gpt-4o-mini
+  tools: [fact_checker, search_tool]
+  memory: false
+  allow_delegation: false
+  max_iter: 4
+  temperature: 0.0
+
+summariser:
+  role: Summariser
+  goal: Produce multi-length summaries (TL;DR, 1-paragraph, executive summary) and bullet abstractions.
+  backstory: >
+    Concise summarizer optimizing for readability at multiple granularity levels.
+  llm: openai/gpt-4o
+  tools: [summariser_tool, code_interpreter_tool]
+  memory: false
+  allow_delegation: false
+  max_iter: 6
+  stream: true
