@@ -4,8 +4,12 @@ research_task:
     Make sure you find any interesting and relevant information given
     the current year is {current_year}.
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
+    A list with the most relevant findings about {topic}, each item with a short
+    evidence snippet and source metadata (URL, title, access date).
   agent: researcher
+  tools: [search_tool, rag_retriever, file_read_tool]
+  create_directory: true
+  markdown: false
 
 reporting_task:
   description: >
@@ -13,5 +17,29 @@ reporting_task:
     Make sure the report is detailed and contains any and all relevant information.
   expected_output: >
     A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
+    Include inline numbered citations (e.g., [1]) and a References section at the end.
+    Formatted as markdown.
   agent: reporting_analyst
+  tools: [citation_manager, fact_checker, summariser_tool]
+  output_file: report.md
+  markdown: true
+
+review_task:
+  description: >
+    Review a generated report for factual accuracy, citation completeness, ethics,
+    and potential policy issues. Flag problems and return either `approve` or
+    `revise` plus reviewer notes.
+  expected_output: >
+    A short verdict (`approve` or `revise`) and structured reviewer notes listing
+    issues, severity, and suggested fixes.
+  agent: reviewer
+  tools: [fact_checker, search_tool]
+
+summarise_task:
+  description: >
+    Produce multi-length summaries for the provided report: TL;DR (1-2 sentences),
+    short summary (1 paragraph), extended summary (3-4 paragraphs), and bullet highlights.
+  expected_output: >
+    A set of summaries in markdown, labeled with their type.
+  agent: summariser
+  tools: [summariser_tool]

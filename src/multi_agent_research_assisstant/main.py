@@ -23,7 +23,7 @@ def run():
     }
 
     try:
-        MultiAgentResearchAssisstant().crew().kickoff(inputs=inputs)
+        MultiAgentResearchAssisstant().crew().kickoff_async(inputs=inputs)
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
@@ -88,7 +88,7 @@ def run_with_trigger():
     }
 
     try:
-        result = MultiAgentResearchAssisstant().crew().kickoff(inputs=inputs)
+        result = MultiAgentResearchAssisstant().crew().kickoff_async(inputs=inputs)
         return result
     except Exception as e:
         raise Exception(f"An error occurred while running the crew with trigger: {e}")
