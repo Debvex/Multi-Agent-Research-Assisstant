@@ -1,6 +1,6 @@
 # MultiAgentResearchAssisstant Crew
 
-Welcome to the MultiAgentResearchAssisstant Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+This is a Multi Agent Research Assistant implemented through Crew AI, it involves researcher, reviewer, analyst, summarizer agents and custom bag of tools according to their needs to be used to finally export a output.md file based on any topic which is given as a input (presently hardcoded in the main.py file) to be researched on.
 
 <img width="1919" height="1035" alt="Screenshot 2026-08-12 163521" src="https://github.com/user-attachments/assets/4f7b0e82-2c45-497a-836a-abf637bfdc0c" />
 
