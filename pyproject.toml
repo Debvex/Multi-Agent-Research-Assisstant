@@ -5,7 +5,7 @@ description = "Multi_Agent_Research_Assisstant using crewAI"
 authors = [{ name = "Your Name", email = "you@example.com" }]
 requires-python = ">=3.10,<3.14"
 dependencies = [
-    "crewai[tools]==1.14.5a2"
+    "crewai[tools]>=1.15.15"
 ]
 
 [project.scripts]
@@ -22,3 +22,4 @@ build-backend = "hatchling.build"
 
 [tool.crewai]
 type = "crew"
+project_id = "24f0d529-77e3-4777-a0e3-6a50a8851652"

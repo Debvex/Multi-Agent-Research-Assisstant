@@ -5,7 +5,6 @@ researcher:
     Experienced domain researcher who prioritizes verifiable sources and concise
     evidence extraction.
   llm: openai/gpt-4o
-  tools: [search_tool, rag_retriever, file_read_tool]
   memory: true
   allow_delegation: false
   max_iter: 10
@@ -16,7 +15,6 @@ reporting_analyst:
   backstory: >
     Technical writer and analyst who transforms evidence into clear reports and sections.
   llm: openai/gpt-4o
-  tools: [citation_manager, fact_checker, summariser_tool]
   memory: true
   allow_delegation: false
   max_iter: 8
@@ -27,7 +25,6 @@ reviewer:
   backstory: >
     Critical auditor focused on correctness, provenance, and policy compliance.
   llm: openai/gpt-4o-mini
-  tools: [fact_checker, search_tool]
   memory: false
   allow_delegation: false
   max_iter: 4
@@ -39,7 +36,6 @@ summariser:
   backstory: >
     Concise summarizer optimizing for readability at multiple granularity levels.
   llm: openai/gpt-4o
-  tools: [summariser_tool, code_interpreter_tool]
   memory: false
   allow_delegation: false
   max_iter: 6

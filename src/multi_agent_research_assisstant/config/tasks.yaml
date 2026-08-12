@@ -7,7 +7,6 @@ research_task:
     A list with the most relevant findings about {topic}, each item with a short
     evidence snippet and source metadata (URL, title, access date).
   agent: researcher
-  tools: [search_tool, rag_retriever, file_read_tool]
   create_directory: true
   markdown: false
 
@@ -20,20 +19,18 @@ reporting_task:
     Include inline numbered citations (e.g., [1]) and a References section at the end.
     Formatted as markdown.
   agent: reporting_analyst
-  tools: [citation_manager, fact_checker, summariser_tool]
   output_file: report.md
   markdown: true
 
 review_task:
   description: >
-    Review a generated report for factual accuracy, citation completeness, ethics,
+    Review a generated report for factual accuracy, citation c Theompleteness, ethics,
     and potential policy issues. Flag problems and return either `approve` or
     `revise` plus reviewer notes.
   expected_output: >
     A short verdict (`approve` or `revise`) and structured reviewer notes listing
     issues, severity, and suggested fixes.
   agent: reviewer
-  tools: [fact_checker, search_tool]
 
 summarise_task:
   description: >
@@ -42,4 +39,3 @@ summarise_task:
   expected_output: >
     A set of summaries in markdown, labeled with their type.
   agent: summariser
-  tools: [summariser_tool]
